@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+$LOAD_PATH << File.expand_path("../lib", File.dirname(__FILE__))
+
+require "kindle_strip"
+
+include KindleStrip
+
+if ARGV.length == 2
+  File.open(ARGV[0], "rb") do |src|
+    buf = src.read
+    File.open(ARGV[1], "wb") do |dest|
+      dest.write(strip_srcs(buf))
+    end
+  end
+else
+  puts "Usage: #{File.basename(__FILE__)} input.mobi output.mobi"
+end
