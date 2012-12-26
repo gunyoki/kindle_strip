@@ -27,3 +27,12 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Specifications
+
+- http://wiki.mobileread.com/wiki/PDB
+- http://wiki.mobileread.com/wiki/MOBI
+
+## Referenced
+
+- http://www.mobileread.com/forums/showthread.php?t=96903

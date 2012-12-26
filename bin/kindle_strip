@@ -4,13 +4,11 @@ $LOAD_PATH << File.expand_path("../lib", File.dirname(__FILE__))
 
 require "kindle_strip"
 
-include KindleStrip
-
 if ARGV.length == 2
   File.open(ARGV[0], "rb") do |src|
     buf = src.read
     File.open(ARGV[1], "wb") do |dest|
-      dest.write(strip_srcs(buf))
+      dest.write(KindleStrip.strip_srcs(buf))
     end
   end
 else

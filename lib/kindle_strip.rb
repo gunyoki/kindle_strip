@@ -5,6 +5,8 @@ module KindleStrip
   OFFSET_NUMBER_OF_RECORDS = 76
   OFFSET_RECORD_INFO = 78
 
+  extend self
+
   def strip_srcs(input)
     if input[0x3c, 8] != "BOOKMOBI"
       raise "MobiPocket marker not found"
@@ -73,7 +75,7 @@ module KindleStrip
 
   def make_padding(output)
     record_offset = uint32_be(output, OFFSET_RECORD_INFO)
-    [].pack("x#{record_offset - output.length}")  # padding by NUL
+    "\0" * (record_offset - output.length)  # padding by NUL
   end
   private :make_padding
 
